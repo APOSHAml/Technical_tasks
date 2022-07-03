@@ -3,6 +3,8 @@ Introduction
 
 Test Tasks
 
+Python 3.10.5
+Browser Chrome
 
 
 
