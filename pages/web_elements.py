@@ -101,14 +101,18 @@ class WebElements:
         return element
 
     def click(self, hold_seconds=0, x_offset=1, y_offset=1):
+        try:
+            element = self.wait_to_be_clickable()
 
-        element = self.wait_to_be_clickable()
-
-        if element:
-            action = ActionChains(self._web_driver)
-            action.move_to_element_with_offset(element, x_offset, y_offset).pause(
-                hold_seconds
-            ).click(on_element=element).perform()
+            if element:
+                action = ActionChains(self._web_driver)
+                action.move_to_element_with_offset(element, x_offset, y_offset).pause(
+                    hold_seconds
+                ).click(on_element=element).perform()
+            else:
+                print("No Found Element")
+        except Exception as e:
+            print(f"{e}: No Click")
 
     def scroll_to_element(self):
 
@@ -116,7 +120,7 @@ class WebElements:
 
         try:
             self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
-        except Exception as e:
+        except Exception:
             pass
         return self
 

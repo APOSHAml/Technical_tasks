@@ -2,9 +2,8 @@ from selenium.webdriver.common.keys import Keys
 
 from pages.product_purchase_page import ProductPurchasePage
 from pages.shop_page import ShopPage
-from pages.view_selected_purchase_and_tariff_page import (
-    ViewSelectedPurchaseAndTariffPage,
-)
+from pages.view_selected_purchase_and_tariff_page import \
+    ViewSelectedPurchaseAndTariffPage
 
 
 def test_buy_promotional_smartphone_installments_for_6_months(driver):
@@ -34,6 +33,6 @@ def test_buy_promotional_smartphone_installments_for_6_months(driver):
     )
 
     assert (
-        "Xiaomi 11T 128GB небесный голубой",
-        "Рассрочка на 6 мес\nC обслуживанием не менее 12 мес от Драйв 5",
-    ) == (text_selected_equipment, text_selected_payment)
+        "Рассрочка на 6 мес\nC обслуживанием не менее 12 мес от Драйв 5"
+        == text_selected_payment
+    )
